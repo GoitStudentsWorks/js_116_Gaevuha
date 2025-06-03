@@ -16,6 +16,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -29,4 +35,8 @@ main {
 }
 main:has(.back-link) {
   text-align: center;
+}
+
+.container {
+  background-color: rgb(177, 255, 255); /*Renowe*/
 }
