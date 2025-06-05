@@ -1,5 +1,6 @@
-// import './js/menu.js'
-// import './js/modal-shopnow.js'
-// import './js/slider-rewiews.js';
-// import './js/order.js'
-// import './js/advertisement.js'
+import './js/refs.js';
+import './js/artists-api';
+import './js/render-function.js';
+import './js/storage.js';
+import './js/modal';
+import './js/handlers.js';
