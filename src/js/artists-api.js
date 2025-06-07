@@ -36,3 +36,19 @@ export async function getArtistsAlbumsId(artistId) {
     throw error;
   }
 }
+
+
+ export async function getFeedback (page=1){
+    const endPoint = '/feedbacks';
+    const params = {
+        limit: 3,
+        page: page,
+    }
+    try{
+    const res = await axios.get(endPoint, {params})
+    return res.data
+    } catch(error){
+          console.error('Помилка при отриманні відгуків:', error.message);
+    throw error;
+    }
+};
