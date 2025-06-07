@@ -18,6 +18,8 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
+  margin-top: 72px;
+  overflow-y: scroll;
 }
 
 main {
