@@ -1,0 +1,35 @@
+.swiper {
+  max-width: 1312px;
+  height: 236px;
+  margin-top: 59px;
+  margin-bottom: 59px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #060307;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+
+.swiper-slide-active{
+  max-width: 1312px;
+  height: 236px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+  opacity: 1;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
