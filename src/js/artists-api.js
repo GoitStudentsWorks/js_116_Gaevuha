@@ -37,7 +37,6 @@ export async function getArtistsAlbumsId(artistId) {
   }
 }
 
-
  export async function getFeedback (page=1){
     const endPoint = '/feedbacks';
     const params = {
@@ -46,7 +45,7 @@ export async function getArtistsAlbumsId(artistId) {
     }
     try{
     const res = await axios.get(endPoint, {params})
-    return res.data
+    return res.data;
     } catch(error){
           console.error('Помилка при отриманні відгуків:', error.message);
     throw error;

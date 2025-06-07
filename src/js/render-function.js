@@ -69,3 +69,18 @@ console.log('genres:', genres);
 
   refs.modalAlbumList.innerHTML = markup;
 }
+
+export function renderFeedback(feedbackData) {
+  const wrapperElem = document.querySelector('.swiper-wrapper');
+
+  const markup = feedbackData.map(({ name, rating, descr }) => `
+    <div class="swiper-slide">
+        <p class="feedback-stars">${rating}</p>
+        <p class="feedback-descr">"${descr}"</p>
+        <p class="feedback-name">${name}</p>
+    </div>
+  `).join('');
+
+  wrapperElem.innerHTML = markup;
+  console.log(wrapperElem);
+}
