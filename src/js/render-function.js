@@ -75,7 +75,7 @@ export function renderFeedback(feedbackData) {
 
   const markup = feedbackData.map(({ name, rating, descr }) => `
     <div class="swiper-slide">
-        <p class="feedback-stars">${rating}</p>
+        <p class="feedback-stars">${rating} (тут будуть зірочки :) )</p>
         <p class="feedback-descr">"${descr}"</p>
         <p class="feedback-name">${name}</p>
     </div>
