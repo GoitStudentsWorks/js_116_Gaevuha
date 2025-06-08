@@ -41,7 +41,11 @@ getArtists(page).then(data => {
   } else {
     showLoadMoreButton();
   }
-});
+})
+  .catch(error => {
+    console.error('Error during initial loading of artists:', error.message);
+    hideLoader();
+  });;
 
 async function handleLoadMoreClick() {
     showLoader();
