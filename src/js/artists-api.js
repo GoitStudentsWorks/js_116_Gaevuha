@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { refs } from './refs.js';
 import {
-  createArtists,
+  renderArtists,
   showLoader,
   hideLoader,
   showLoadMoreButton,
@@ -10,10 +10,19 @@ import {
 
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 
-let allArtists = [];
+export let allArtists = [];
 let page = 1;
 const limit = 8;
 let totalPages = 0;
+let resizeTimeout;
+
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    renderArtists();
+  }, 300);
+});
+
 
 export async function getArtists(currentPage = 1) {
   const params = { limit: 8, page: currentPage };
@@ -21,7 +30,6 @@ export async function getArtists(currentPage = 1) {
 
   try {
       const res = await axios.get(endPoint, { params });
-      console.log(res.data)
     return res.data;
   } catch (error) {
     console.error('Помилка при завантаженні артистів:', error.message);
@@ -31,10 +39,10 @@ export async function getArtists(currentPage = 1) {
 
 showLoader();
 getArtists(page).then(data => {
-    allArtists = data.artists;
-    totalPages = Math.ceil(data.totalArtists / limit);
-    createArtists(data.artists);
-    hideLoader();
+  allArtists = data.artists;
+  totalPages = Math.ceil(data.totalArtists / limit);
+  renderArtists();
+  hideLoader();
 
   if (page >= totalPages) {
     hideLoadMoreButton();
@@ -63,7 +71,7 @@ async function handleLoadMoreClick() {
         }
 
         allArtists = [...allArtists, ...newArtists];
-        createArtists(newArtists);
+        renderArtists();
         hideLoader();
 
         if (page >= totalPages) {
