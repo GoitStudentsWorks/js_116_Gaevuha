@@ -13,7 +13,7 @@
   .about__image {
   position: relative;
   width: 280px;
-  height: 160px;
+  height: 168px;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -38,10 +38,6 @@
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.2;
-  }
-  
-  .about__text {
-    font-size: 18px;
   }
   
   /* Планшет */
@@ -82,8 +78,13 @@
   
     .about__image {
       width: 640px;
-      height: 664px;
-    }
+      height: 665px;
+      background-color: black;
+      border-radius: 20px;
+      }
+      .about__image img {
+      transform: translateY(-1px);
+      }
 
     .about__content {
       flex: 1;
