@@ -1,5 +1,6 @@
 import refs from './refs';
-
+const spritePath = '../img/sprite.svg';
+const iconId = 'icon-youtube';
 
 export async function createdModal(data) {
   const {
@@ -32,7 +33,7 @@ console.log('genres:', genres);
           <span class="track__link">
             ${movie ? `<a href="${safeUrl}" target="_blank" aria-label="YouTube link">
               <svg class="icon-youtube">
-                <use href="/img/sprite.svg#icon-youtube"></use>
+                <use href="${spritePath}#${iconId}"></use>
               </svg>
             </a>` : ''}
           </span>
