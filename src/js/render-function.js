@@ -3,6 +3,7 @@ import { allArtists } from './artists-api.js';
 
 const spritePath = 'assets/sprite.svg';
 const iconId = 'icon-youtube';
+const iconLearnId = 'learn-more';
 
 
 function truncateText(text, limit) {
@@ -68,7 +69,7 @@ export function renderArtists() {
             <button class="learn-more-artist-btn" data-artist-id="${artist._id}">
               Learn More
               <svg class="learn-more-icon" width="8" height="15" aria-hidden="true">
-                <use href="/img/sprite.svg#learn-more"></use>
+                <use href="${spritePath}#${iconLearnId}"></use>
               </svg>
             </button>
           </div>
