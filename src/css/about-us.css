@@ -45,6 +45,10 @@
   
   /* Планшет */
   @media (min-width: 768px) {
+
+    .about {
+        padding: 64px 32px;}
+
     .about__content {
         margin-top: 24px;
     }
@@ -70,6 +74,10 @@
   
   /* Десктоп */
   @media (min-width: 1440px) {
+    .about {
+        padding: 64px 112px;
+    }
+
     .about__container {
       flex-direction: row;
       gap: 32px;
