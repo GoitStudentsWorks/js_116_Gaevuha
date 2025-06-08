@@ -87,11 +87,12 @@ refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains('learn-more-artist-btn')) {
-    const artistCard = e.target.closest('.artist');
-    const artistId = artistCard?.id;
+    const artistId = e.target.dataset.artistId;
     console.log(artistId);
-    // тут треба викликати модалку
+    // виклик модалки
   }
 });
+
+
 
 
