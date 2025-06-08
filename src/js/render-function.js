@@ -6,6 +6,7 @@ const iconId = 'icon-youtube';
 const iconLeanMoreId = 'learn-more'
 
 
+
 function truncateText(text, limit) {
   if (!text) return 'No description available';
 
