@@ -1,8 +1,6 @@
 .about {
     background-color: #060307;
-    color: #ffffff;
-    padding: 64px 20px;
-    font-family: sans-serif;
+    padding: 64px 0px;
   }
   
   .about__container {
@@ -12,13 +10,18 @@
     margin: 0 auto;
   }
   
-  .about__image img {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border-radius: 16px;
-  }
-  
+  .about__image {
+  position: relative;
+  width: 280px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.about__image img {
+  transform: translateY(-10px);
+}
+
   .about__content {
     margin-top: 48px;
   }
@@ -34,23 +37,23 @@
     font-size: 44px;
     font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
   }
   
   .about__text {
     font-size: 18px;
-    line-height: 1.5;
-    color: #ffffff;
   }
   
   /* Планшет */
   @media (min-width: 768px) {
-
-    .about {
-        padding: 64px 32px;}
-
     .about__content {
         margin-top: 24px;
     }
+
+    .about__image {
+      width: 704px;
+      height: 413px;
+  }
 
     .about__icon svg {
         width: 80px;
@@ -65,17 +68,10 @@
     .about__text {
       font-size: 20px;
     }
-
-    .about__image img {
-        max-width: 704px;
-  }
 }
   
   /* Десктоп */
   @media (min-width: 1440px) {
-    .about {
-        padding: 64px 112px;
-    }
 
     .about__container {
       flex-direction: row;
@@ -84,18 +80,15 @@
       justify-content: center;
     }
   
+    .about__image {
+      width: 640px;
+      height: 664px;
+    }
+
     .about__content {
       flex: 1;
       text-align: left;
       margin-top: 0;
-    }
-  
-    .about__image {
-      flex: 1;
-    }
-  
-    .about__icon svg {
-      max-width: 640px;
     }
   
     .about__title {
