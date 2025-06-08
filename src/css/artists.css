@@ -1,0 +1,209 @@
+.artists-section {
+    padding-bottom: 64px;
+    padding-top: 64px;
+}
+.artists-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.artists-subtitle {
+    font-family: "Epilogue", sans-serif;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+}
+
+.artists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    min-width: 288px;
+}
+
+.artist-image-wrapper {
+    border-radius: 16px;
+    position: relative;
+    width: 288px;
+    height: 177px;
+    background-color: #a9a9a9;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.artist-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.artist-content {
+    width: 288px;
+}
+.artist-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.artist-genre {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    height: 32px;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.artist-name {
+    font-family: "Epilogue", sans-serif;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.artist-description {
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+.learn-more-artist-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 12px;
+    width: 125px;
+    height: 27px;
+
+    text-align: start;
+    font-weight: 500;
+    color: #fff;
+}
+
+.load-more-wrapper {
+    margin-top: 32px;
+}
+
+.load-more-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    width: 288px;
+    height: 47px;
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background: #764191;
+
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+    .artists {
+        gap: 32px;
+    }
+
+    .artist-image-wrapper {
+        height: 432px;
+        width: 704px;   
+    }
+
+    .artist-content {
+        width: 704px;
+    }
+    .load-more-wrapper {
+       display: flex;
+       justify-content: center;
+        margin-top: 64px;
+    }
+
+    .load-more-btn {
+       width: 340px;
+     }
+}
+@media screen and (min-width: 1440px) {
+    .artists-section {
+        padding-top: 112px;
+        padding-bottom: 112px;    
+        }
+    .artists-subtitle {
+        width: 523px;
+        font-size: 60px;
+        margin-bottom: 80px;
+    }
+
+    .artist-image-wrapper {
+        width: 640px;
+        height: 393px;
+    }
+
+    .artist-content {
+        width: 640px;
+    }
+    .load-more-btn {
+        width: 170px;
+    }
+}
+
+.learn-more-icon {
+    margin-left: 8px;
+    fill: #fff;
+}
+.arrow-down-icon {
+    margin-left: 12px;
+    fill: #fff;
+}
+
+.loader {
+    display: block;
+    margin: 32px auto;
+    position: relative;
+    width: 85px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#FFF 50px, transparent 0),
+        linear-gradient(#FFF 50px, transparent 0),
+        linear-gradient(#FFF 50px, transparent 0),
+        linear-gradient(#FFF 50px, transparent 0),
+        linear-gradient(#FFF 50px, transparent 0),
+        linear-gradient(#FFF 50px, transparent 0);
+    background-position: 0px center, 15px center, 30px center, 45px center, 60px center, 75px center, 90px center;
+    animation: rikSpikeRoll 0.65s linear infinite alternate;
+}
+
+@keyframes rikSpikeRoll {
+    0% {
+        background-size: 10px 3px;
+    }
+
+    16% {
+        background-size: 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px, 10px 3px
+    }
+
+    33% {
+        background-size: 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px
+    }
+
+    50% {
+        background-size: 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px
+    }
+
+    66% {
+        background-size: 10px 3px, 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px
+    }
+
+    83% {
+        background-size: 10px 3px, 10px 3px, 10px 10px, 10px 30px, 10px 50px, 10px 3px
+    }
+
+    100% {
+        background-size: 10px 3px, 10px 3px, 10px 3px, 10px 10px, 10px 30px, 10px 50px
+    }
+}
