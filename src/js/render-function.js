@@ -1,5 +1,5 @@
 import refs from './refs';
-const spritePath = 'assets/sprite.svg#icon-youtube';
+const spritePath = 'assets/sprite.svg';
 const iconId = 'icon-youtube';
 
 export async function createdModal(data) {
