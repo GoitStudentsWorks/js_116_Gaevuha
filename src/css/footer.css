@@ -13,11 +13,12 @@
     margin-bottom: 25px;
 }
 
-.link-logo{
+.link-logo-ftr{
     margin-bottom: 32px;
 }
 
 .logo-icon-ftr{
+    width: 84px;
     height: 36px;
     fill: #764191;
 }
@@ -30,10 +31,8 @@
 }
 
 .footer-item{
-    font-family: "IBM Plex Sans";
     font-weight: 600;
     font-size: 16px;
-    line-height: 1.5;
     transition: color 0.3s ease;
     cursor: pointer;
 }
@@ -80,10 +79,8 @@
 
 .footer-text{
     width: 278px;
-    font-family: "IBM Plex Sans";
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.5;
     text-align: center;
     padding-bottom: 16px;
     
@@ -107,7 +104,8 @@
         
     }
 
-    .link-logo{
+    .link-logo-ftr{
+        
         height: 45px;
         display: flex;
         align-items: center;
@@ -116,6 +114,7 @@
 
 
     .logo-icon-ftr {
+        width: 116px;
         height: 30px;
     }
 
