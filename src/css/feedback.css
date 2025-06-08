@@ -1,6 +1,5 @@
 .swiper {
-  max-width: 1312px;
-  height: 236px;
+  max-width: auto;
   margin-top: 59px;
   margin-bottom: 59px;
 }
@@ -10,6 +9,7 @@
 
 .swiper-slide {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background: #060307;
@@ -23,8 +23,6 @@
 
 
 .swiper-slide-active{
-  max-width: 1312px;
-  height: 236px;
 }
 
 
@@ -37,8 +35,8 @@
   width: 48px !important;
   height: 48px !important;
   position: absolute;
-  top: 0%;
-  transform: translateY(-110%);
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
