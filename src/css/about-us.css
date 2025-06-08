@@ -20,15 +20,14 @@
   }
   
   .about__content {
-    text-align: center;
     margin-top: 48px;
   }
   
-  .about__icon img {
+  .about__icon svg{
     width: 64px;
     height: 64px;
     margin-bottom: 20px;
-    color: #ffffff;
+    fill: #ffffff;
   }
   
   .about__title {
@@ -53,7 +52,7 @@
         margin-top: 24px;
     }
 
-    .about__icon img {
+    .about__icon svg {
         width: 80px;
         height: 80px;
         margin-bottom: 24px;
@@ -95,8 +94,7 @@
       flex: 1;
     }
   
-    .about__icon img {
-      margin-bottom: 24px;
+    .about__icon svg {
       max-width: 640px;
     }
   
