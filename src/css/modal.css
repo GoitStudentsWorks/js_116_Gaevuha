@@ -1,6 +1,5 @@
 .backdrop {
   position: fixed;
-  overflow: scroll;
   top: 0;
   left: 0;
   width: 100%;
@@ -11,25 +10,37 @@
   visibility: hidden;
   pointer-events: none;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 999;
 }
 
 .backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+
+
+
 }
 
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  pointer-events: none;
+  visibility: hidden;
+
+}
 
 .modal {
   border-radius: 16px;
-  padding: 52px 8px 0px;
+  padding: 52px 8px 52px;
   max-width: 288px;
   position: absolute;
-  top: 50%;
+  top: 64px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  overflow-y: auto;
+  transform: translate(-50%, 0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #060307;
+  overflow: auto;
+  max-height: 90vh;
 }
 
 
@@ -281,10 +292,8 @@
 
 @media screen and (min-width:1440px) {
   .modal {
-    max-width: 1312px;
-    max-height: 1655px;
+    min-width: 1312px;
     padding: 64px;
-    overflow: auto;
   }
 
   .artist__image__modal {
