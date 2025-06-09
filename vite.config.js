@@ -32,12 +32,12 @@ export default defineConfig(({ command }) => {
             }
             return 'assets/[name]-[hash][extname]';
           },
-          assetFileNames: assetInfo => {
-            if (assetInfo.name === 'sprite.svg') {
-              return 'assets/sprite.svg'; // без хешу
-            }
-            return 'assets/[name]-[hash][extname]';
-          }
+          // assetFileNames: assetInfo => {
+          //   if (assetInfo.name === 'sprite.svg') {
+          //     return 'assets/sprite.svg'; // без хешу
+          //   }
+          //   return 'assets/[name]-[hash][extname]';
+          // }
 
         },
       },
