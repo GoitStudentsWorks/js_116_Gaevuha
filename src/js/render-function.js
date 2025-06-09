@@ -156,21 +156,25 @@ export async function createdModal(data) {
   const markup = `
     <li class="artist__item" data-id="${_id}">
     <h3 class="artist__name">${strArtist}</h3>
-      <img class="artist__image" src="${strArtistThumb}" alt="${strArtist}" width="272">
-      <ul class="artist__info">
-  <li>
+    <div class="artist__box">
+    <div class="artist__image__modal artist__box__item">
+        <img class="artist__image" src="${strArtistThumb}" alt="${strArtist}" width="272">
+    </div>
+  <div class="artist__box__item">
+    <ul class="artist__info">
+  <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Years active</h4>
     <p class="artist__info-value">${intFormedYear}–present</p>
   </li>
-  <li>
+  <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Sex</h4>
     <p class="artist__info-value">${strGender}</p>
   </li>
-  <li>
+  <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Members</h4>
     <p class="artist__info-value">${intMembers}</p>
   </li>
-  <li>
+  <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Country</h4>
     <p class="artist__info-value">${strCountry}</p>
   </li>
@@ -180,6 +184,8 @@ export async function createdModal(data) {
         <p class="artist__biography-value">${strBiographyEN}</p>
 </div>
       <ul class="artists__genres-list">${genresMarkup}</ul>
+  </div>
+</div>
       <h3 class="title__albums-modal">Albums</h3>
       <ul class="modal__album-list">${albumMarkup}</ul>
     </li>
