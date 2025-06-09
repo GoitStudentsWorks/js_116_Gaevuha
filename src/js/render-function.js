@@ -29,11 +29,11 @@ function getLimitByWidth() {
   const screenWidth = window.innerWidth;
 
   if (screenWidth < 768) {
-    return 60;      
+    return 60;
   } else if (screenWidth < 1024) {
-    return 160;      
+    return 160;
   } else {
-    return 147;     
+    return 147;
   }
 }
 
@@ -118,7 +118,7 @@ export async function createdModal(data) {
   const genresMarkup = genres.map(
     genre => `<li class="artist__genre-item">${genre}</li>`
   ).join('');
-console.log('genres:', genres);
+  console.log('genres:', genres);
   const albumMarkup = albumsList.map(({ strAlbum, intYearReleased, tracks = [] }) => {
     const tracksMarkup = tracks.map(({ strTrack, intDuration, movie }) => {
       const durationMin = Math.floor(intDuration / 60000);
@@ -127,11 +127,11 @@ console.log('genres:', genres);
 
       return `
         <li class="track__row">
-          <span class="track__title">${strTrack}</span>
-          <span class="track__time">${durationMin}:${durationSec}</span>
-          <span class="track__link">
-            ${movie ? `<a href="${safeUrl}" target="_blank" aria-label="YouTube link">
-              <svg class="icon-youtube">
+          <span class="track__name track__font">${strTrack}</span>
+          <span class="track__time track__font">${durationMin}:${durationSec}</span>
+          <span class="track__link track__font">
+            ${movie ? `<a class="track__link__youtube" href="${safeUrl}" target="_blank" aria-label="YouTube link">
+              <svg class="icon-youtube" width="24" height="24">
                 <use href="${spritePath}#${iconId}"></use>
               </svg>
             </a>` : ''}
@@ -141,32 +141,51 @@ console.log('genres:', genres);
     }).join('');
 
     return `
-      <li class="artist__genre-item">
-        <p class="album__name">${strAlbum} (${intYearReleased})</p>
-        <span>Track</span><span>Time</span><span>Link</span>
+      <li class="album-list-item">
+        <h4 class="album__name">${strAlbum} (${intYearReleased})</h4>
+        <div class="track__row__name">
+        <span class="track__name track__font__title">Track</span>
+        <span class="track__time track__font__title">Time</span>
+        <span class="track__link track__font__title">Link</span>
+        </div>
         <ul class="album__track-list">${tracksMarkup}</ul>
       </li>
     `;
   }).join('');
 
   const markup = `
-    <li class="artists__item" data-id="${_id}">
-      <p class="artists__name">${strArtist}</p>
-      <div class="wrap-artists__image" style="background-image: url('${strArtistThumb}');"></div>
-      <div class="artist__info">
-        <p class="year">Years active <span class="artist__info-value">${intFormedYear}–present</span></p>
-        <p class="gender">Sex <span class="artist__info-value">${strGender}</span></p>
-        <p class="members">Members <span class="artist__info-value">${intMembers}</span></p>
-        <p class="country">Country <span class="artist__info-value">${strCountry}</span></p>
-        <p class="title__biography">Biography</p>
-        <p class="artists__biography">${strBiographyEN}</p>
-      </div>
+    <li class="artist__item" data-id="${_id}">
+    <h3 class="artist__name">${strArtist}</h3>
+      <img class="artist__image" src="${strArtistThumb}" alt="${strArtist}" width="272">
+      <ul class="artist__info">
+  <li>
+    <h4 class="artist__subtitle__info">Years active</h4>
+    <p class="artist__info-value">${intFormedYear}–present</p>
+  </li>
+  <li>
+    <h4 class="artist__subtitle__info">Sex</h4>
+    <p class="artist__info-value">${strGender}</p>
+  </li>
+  <li>
+    <h4 class="artist__subtitle__info">Members</h4>
+    <p class="artist__info-value">${intMembers}</p>
+  </li>
+  <li>
+    <h4 class="artist__subtitle__info">Country</h4>
+    <p class="artist__info-value">${strCountry}</p>
+  </li>
+</ul>
+<div class="artist__biography">
+      <h4 class="artist__subtitle__info">Biography</h4>
+        <p class="artist__biography-value">${strBiographyEN}</p>
+</div>
       <ul class="artists__genres-list">${genresMarkup}</ul>
-      <p class="title__albums-modal">Albums</p>
+      <h3 class="title__albums-modal">Albums</h3>
       <ul class="modal__album-list">${albumMarkup}</ul>
     </li>
   `;
 
+  console.log('this is a foto artist:', data);
   refs.modalAlbumList.innerHTML = markup;
 }
 
