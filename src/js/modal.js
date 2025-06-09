@@ -1,4 +1,4 @@
-import refs from './refs.js';
+import { refs } from './refs.js';
 import { getArtists, getArtistsAlbumsId, getArtistById } from './artists-api.js';
 import { createdModal } from './render-function.js';
 
