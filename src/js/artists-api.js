@@ -154,8 +154,6 @@ export async function getFeedback(page = 1) {
     const resSecondArray = resSecond.data.data;
     const lastFeedback = resSecondArray.at(-1);
     dataFeedback.push(lastFeedback);
-
-    console.log(dataFeedback)
     return dataFeedback;
 
   } catch (error) {

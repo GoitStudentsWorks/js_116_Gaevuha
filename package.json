@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^1.9.0",
     "izitoast": "^1.4.0",
+    "star-rating.js": "^4.3.1",
     "swiper": "^11.2.8",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
