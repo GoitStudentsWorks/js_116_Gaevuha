@@ -69,6 +69,8 @@
     fill: currentColor;
     transition: color 0.3s ease;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
 
 .footer-links a:focus .icons-footer{
@@ -97,7 +99,10 @@
         margin-bottom: 32px;
     }
 
-    
+    .icons-footer{
+        width: 32px;
+        height: 32px;
+    }
 
     .footer-logo{
         margin-bottom: 36px;
