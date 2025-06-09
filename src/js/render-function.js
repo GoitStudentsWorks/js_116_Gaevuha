@@ -1,7 +1,7 @@
 import { refs } from './refs.js';
 import { allArtists } from './artists-api.js';
+import spritePath from './sprite.js';
 
-const spritePath = 'assets/sprite.svg';
 const iconId = 'icon-youtube';
 const iconLeanMoreId = 'learn-more'
 
