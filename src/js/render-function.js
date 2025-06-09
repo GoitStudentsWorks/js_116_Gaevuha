@@ -130,7 +130,7 @@ export async function createdModal(data) {
           <span class="track__name track__font">${strTrack}</span>
           <span class="track__time track__font">${durationMin}:${durationSec}</span>
           <span class="track__link track__font">
-            ${movie ? `<a class="track__link__youtube" href="${safeUrl}" target="_blank" aria-label="YouTube link">
+            ${movie ? `<a class="track__link__youtube" href="${safeUrl}" target="_blank" aria-label="YouTube link" rel="noopener noreferrer">
               <svg class="icon-youtube" width="24" height="24">
                 <use href="${spritePath}#${iconId}"></use>
               </svg>
