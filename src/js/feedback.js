@@ -2,6 +2,9 @@ import {getFeedback} from './artists-api'
 import {renderFeedback} from './render-function'
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import starFull from '../img/star_full.png';
+import starEmpty from '../img/star_empty.png';
+
 
 export function initStars() {
   const stars = document.querySelectorAll('.rating');
@@ -11,10 +14,10 @@ export function initStars() {
     const emptyCount = 5 - rounded;
     let markup = '';
     for (let i = 0; i < rounded; i++) {
-      markup += `<i class="star-custom" style="background-image: url('/img/star_full.png');"></i>`;
+      markup += `<i class="star-custom" style="background-image: url('${starFull}');"></i>`;
     }
     for (let i = 0; i < emptyCount; i++) {
-      markup += `<i class="star-custom" style="background-image: url('/img/star_empty.png');"></i>`;
+      markup += `<i class="star-custom" style="background-image: url('${starEmpty}');"></i>`;
     }
     star.innerHTML = markup;
   });
