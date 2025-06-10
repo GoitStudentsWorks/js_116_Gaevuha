@@ -15,6 +15,7 @@ let page = 1;
 const limit = 8;
 let totalPages = 0;
 let resizeTimeout;
+const loaderElement = document.querySelector('.section-artists-loader');
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -28,9 +29,7 @@ export async function getArtists(currentPage = 1) {
   const endPoint = `/artists`;
 
   try {
-
-      const res = await axios.get(endPoint, { params });
-
+    const res = await axios.get(endPoint, { params });
     return res.data;
   } catch (error) {
     console.error('Помилка при завантаженні артистів:', error.message);
@@ -38,12 +37,12 @@ export async function getArtists(currentPage = 1) {
   }
 }
 
-showLoader();
+showLoader(loaderElement);
 getArtists(page).then(data => {
   allArtists = data.artists;
   totalPages = Math.ceil(data.totalArtists / limit);
   renderArtists();
-  hideLoader();
+  hideLoader(loaderElement);
 
   if (page >= totalPages) {
     hideLoadMoreButton();
@@ -53,11 +52,11 @@ getArtists(page).then(data => {
 })
   .catch(error => {
     console.error('Error during initial loading of artists:', error.message);
-    hideLoader();
+    hideLoader(loaderElement);
   });;
 
 async function handleLoadMoreClick() {
-    showLoader();
+    showLoader(loaderElement);
     page += 1;
 
     try {
@@ -66,21 +65,21 @@ async function handleLoadMoreClick() {
         
         if (!newArtists.length) {
             alert("We're sorry, there are no more artists to load.");
-            hideLoader();
+            hideLoader(loaderElement);
             hideLoadMoreButton();
             return;
         }
 
         allArtists = [...allArtists, ...newArtists];
         renderArtists();
-        hideLoader();
+        hideLoader(loaderElement);
 
         if (page >= totalPages) {
             hideLoadMoreButton();
         }
     } catch (error) {
         console.error('Error loading new artists:', error.message)
-        hideLoader();
+        hideLoader(loaderElement);
     }
 }
 
