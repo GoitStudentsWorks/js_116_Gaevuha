@@ -1,27 +1,24 @@
 import { refs } from './refs.js';
-import { getArtists, getArtistsAlbumsId, getArtistById } from './artists-api.js';
+import { getArtistsAlbumsId, getArtistById, dataAllGenre } from './artists-api.js';
 import { createdModal, hideLoader, showLoader } from './render-function.js';
 import { showModal, hideModal } from './modal.js';
 
+// MODAL
 export async function handlerModal(e) {
   if (e.target.tagName !== 'BUTTON') return;
 
-  showLoader();
   const artistId = e.target.dataset.artistId;
 
   try {
     const artistData = await getArtistById(artistId);
-    const response = await getArtists();
-
-    const artistsList = response.artists || [];
-    const artistWithGenres = artistsList.find(artist => artist._id === artistId);
+    const artistWithGenres = dataAllGenre.find(({ _id }) => _id === artistId);
     const genres = artistWithGenres?.genres || [];
 
     const { albumsList = [] } = await getArtistsAlbumsId(artistId);
 
     const fullArtistData = { ...artistData, genres, albumsList };
     createdModal(fullArtistData);
-    hideLoader();
+    // hideLoader();
     showModal();
   } catch (error) {
     console.error('Помилка при завантаженні артиста або альбомів:', error.message);

@@ -15,6 +15,7 @@ let page = 1;
 const limit = 8;
 let totalPages = 0;
 let resizeTimeout;
+export let dataAllGenre;
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -29,7 +30,7 @@ export async function getArtists(currentPage = 1) {
 
   try {
 
-      const res = await axios.get(endPoint, { params });
+    const res = await axios.get(endPoint, { params });
 
     return res.data;
   } catch (error) {
@@ -38,7 +39,7 @@ export async function getArtists(currentPage = 1) {
   }
 }
 
-showLoader();
+// showLoader();
 getArtists(page).then(data => {
   allArtists = data.artists;
   totalPages = Math.ceil(data.totalArtists / limit);
@@ -50,6 +51,7 @@ getArtists(page).then(data => {
   } else {
     showLoadMoreButton();
   }
+  dataAllGenre = allArtists.map(({ genres, _id }) => ({ genres, _id }));
 })
   .catch(error => {
     console.error('Error during initial loading of artists:', error.message);
@@ -57,42 +59,46 @@ getArtists(page).then(data => {
   });;
 
 async function handleLoadMoreClick() {
-    showLoader();
-    page += 1;
+  showLoader();
+  page += 1;
 
-    try {
-        const data = await getArtists(page);
-        const newArtists = data.artists;
-        
-        if (!newArtists.length) {
-            alert("We're sorry, there are no more artists to load.");
-            hideLoader();
-            hideLoadMoreButton();
-            return;
-        }
+  try {
+    const data = await getArtists(page);
+    const newArtists = data.artists;
+    dataAllGenre = [...dataAllGenre, ...newArtists.map(({ genres, _id }) => ({ genres, _id }))];
+    console.log('наступні запуск', dataAllGenre);
 
-        allArtists = [...allArtists, ...newArtists];
-        renderArtists();
-        hideLoader();
-
-        if (page >= totalPages) {
-            hideLoadMoreButton();
-        }
-    } catch (error) {
-        console.error('Error loading new artists:', error.message)
-        hideLoader();
+    if (!newArtists.length) {
+      alert("We're sorry, there are no more artists to load.");
+      hideLoader();
+      hideLoadMoreButton();
+      return;
     }
+
+    allArtists = [...allArtists, ...newArtists];
+    renderArtists();
+    hideLoader();
+
+    if (page >= totalPages) {
+      hideLoadMoreButton();
+    }
+  } catch (error) {
+    console.error('Error loading new artists:', error.message)
+    hideLoader();
+  }
 }
 
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
 
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('learn-more-artist-btn')) {
-    const artistId = e.target.dataset.artistId;
-    console.log(artistId);
-    // виклик модалки
-  }
-});
+// document.addEventListener('click', e => {
+//   if (e.target.classList.contains('learn-more-artist-btn')) {
+//     const artistId = e.target.dataset.artistId;
+//     console.log(artistId);
+//     // виклик модалки
+//   }
+// });
+
+// MODAL API
 
 export async function getArtistById(artistId) {
   const endPoint = `/artists/${artistId}`;
@@ -116,6 +122,10 @@ export async function getArtistsAlbumsId(artistId) {
     throw error;
   }
 }
+
+export async function getArtistsGenre() { }
+
+// FEEDBACK API
 
 export async function getFeedback(page = 1) {
   const dataFeedback = [];
