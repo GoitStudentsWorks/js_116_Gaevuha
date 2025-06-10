@@ -1,11 +1,28 @@
 <section class="about" id="idAbout" style="scroll-margin-top: 60px">
   <div class="about__container container">
     <div class="about__image">
-      <img
-        src="/img/team.webp"
-        srcset="/img/team@2x.webp"
-        alt="ArtistsHub Team"
-      />
+      <picture>
+        <source
+          srcset="./img/team-mobile.webp 1x, ./img/team-mobile@2x.webp 2x"
+          media="(max-width: 767px)"
+          width="280"
+          height="169"
+        />
+        <source
+          srcset="./img/team-tablet.webp 1x, ./img/team-tablet@2x.webp 2x"
+          media="(max-width: 1439px)"
+          width="704"
+          height="414"
+        />
+        <img
+          srcset="./img/team.webp 1x, ./img/team@2x.webp 2x"
+          src="./img/team.webp"
+          alt="ArtistsHub Team"
+          width="640"
+          height="666"
+          class="made-img"
+        />
+      </picture>
     </div>
     <div class="about__content">
       <div class="about__icon">
