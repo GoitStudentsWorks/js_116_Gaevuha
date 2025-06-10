@@ -1,0 +1,192 @@
+/* Мобільна версія */
+.swiper {
+  max-width: 100%;
+  margin-top: 64px;
+  margin-bottom: 0px;
+  min-height: 254px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+  }
+
+.feedback-descr{
+  color: #FFFFFF;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.feedback-name{
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.swiper-pagination{
+  margin-top: 0px;
+}
+
+.swiper .swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+}
+
+.swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255) !important;
+  width: 8px;
+  height: 8px;
+  margin: 0 9px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.star-custom {
+  display: inline-block;
+  width: 20px;
+  height: 19px;
+  background-size: 20px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-feedback{
+    margin-top: 16px;
+    display: block;
+    border: none;
+    width: 100%;
+    height: 47px;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0px 1px 2px 0px rgba(6, 3, 7, 0.05),
+    inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 0px 1px rgba(6, 3, 7, 0.15),
+    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.25),
+    inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
+    background: rgb(118, 65, 145);
+    color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-feedback:active{
+    background-color: rgb(95, 52, 116);
+}
+
+/* Планшетна версія */
+@media screen and (min-width: 768px) {
+.swiper {
+  min-height: 298px;
+}
+
+.swiper-slide {
+  padding: 93px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex !important;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  background: rgb(6, 3, 7);
+  width: 48px !important;
+  height: 48px !important;
+  position: absolute;
+  top: var(--swiper-navigation-top-offset, 50%)!important;
+  cursor: pointer;
+}
+
+.icon-arrow {
+  width: 24px !important;
+  height: 24px !important;
+  fill: white;
+  pointer-events: none;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+.feedback-descr{
+  font-size: 26px;
+}
+
+.icon-arrow{
+  fill: #FFFFFF;
+}
+
+.button-feedback{
+    margin-top: 26px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 0;
+    border: none;
+    width: 158px;
+}
+}
+
+/* Десктопна версія */
+@media screen and (min-width: 1440px) {
+
+.swiper {
+  min-height: 339px;
+}
+
+.swiper-slide {
+  padding-left: 223px;
+  padding-right: 223px;
+}
+
+.feedback-descr{
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.button-feedback{
+    margin-top: 90px;
+    margin-bottom: 112px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 0;
+    border: none;
+    width: 177px;
+}
+
+.button-feedback:hover{
+    background-color: rgb(95, 52, 116);
+}
+}
+
+

@@ -6,6 +6,7 @@
   color: #fff;
   background-color: #060307;
 }
+
 *,
 *::after,
 *::before {
@@ -18,11 +19,14 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
+  margin-top: 72px;
+  overflow-y: scroll;
 }
 
 main {
   flex-grow: 1;
 }
+
 main:has(.back-link) {
   text-align: center;
 }
