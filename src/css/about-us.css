@@ -26,7 +26,7 @@
     margin-top: 48px;
   }
   
-  .about__icon svg{
+  .about__icon {
     width: 64px;
     height: 64px;
     margin-bottom: 20px;
@@ -51,7 +51,7 @@
       height: 413px;
   }
 
-    .about__icon svg {
+    .about__icon {
         width: 80px;
         height: 80px;
         margin-bottom: 24px;
@@ -68,7 +68,9 @@
   
   /* Десктоп */
   @media (min-width: 1440px) {
-
+    .about {
+      padding: 112px 0px;
+    }
     .about__container {
       flex-direction: row;
       gap: 32px;
