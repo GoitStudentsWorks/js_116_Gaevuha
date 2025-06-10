@@ -1,0 +1,211 @@
+
+/* Мобільна версія */
+.hero {
+    position: relative;
+    background-color: #23132B;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(180deg, rgba(6, 3, 7, 1), rgba(35, 19, 43, 0));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 106px;
+    background: linear-gradient(0deg, rgba(6, 3, 7, 1), rgba(35, 19, 43, 0));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-list{
+    display: flex;
+    flex-direction: column;
+    padding-top: 64px;
+}
+
+.title-hero {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-family: "Epilogue", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.text-hero{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400px;
+    line-height: 1.5;
+    text-align: left;
+    padding-bottom: 24px;
+}
+
+.button-hero{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border: none;
+    width: 100%;
+    height: 47px;
+    padding: 10px 24px 10px 24px;
+    border-radius: 12px;
+    box-shadow: 0px 1px 2px 0px rgba(6, 3, 7, 0.05),
+    inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 0px 1px rgba(6, 3, 7, 0.15),
+    inset 0px 2px 1px 0px rgba(255, 255, 255, 0.25),
+    inset 0px 32px 24px 0px rgba(255, 255, 255, 0.05);
+    background: rgb(118, 65, 145);
+    color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hero:active{
+    background-color: rgb(95, 52, 116);
+}
+
+.icon-btn-hero{
+    margin-left: 12px;
+    fill: #ffffff;
+}
+
+.bg-image {
+    background-image: image-set(
+    url('../img/hero-mob.webp') 1x,
+    url('../img/hero-mob@2x.webp') 2x
+  );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 385px;
+}
+
+/* Планшетна версія */
+@media screen and (min-width: 768px) {
+
+.hero::before {
+    height: 125px;
+}
+
+.hero::after {
+    height: 137px;
+}
+
+.hero-list{
+    padding-top: 32px;
+}
+
+.hero-item {
+    width: 624px;
+}
+
+.title-hero {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 37px;
+}
+
+.text-hero{
+    font-size: 20px;
+    font-weight: 400px;
+    line-height: 1.5;
+    text-align: left;
+    padding-bottom: 32px;
+}
+
+.button-hero{
+    margin-bottom:32px;
+    width: 246px;
+}
+
+.bg-image {
+    background-image: image-set(
+    url('../img/hero-tab.webp') 1x,
+    url('../img/hero-tab@2x.webp') 2x
+  );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 632px;
+}
+}
+
+/* Десктопна версія */
+@media screen and (min-width: 1440px) {
+
+.hero-list{
+    flex-direction: row;
+    padding-top: 0px;
+}
+
+.hero-item{
+    padding-top: 216px;
+    padding-right: 31px;
+}
+
+.img-item{
+    width: 641px;
+}
+
+.bg-image {
+    background-image: image-set(
+    url('../img/hero-desk.webp') 1x,
+    url('../img/hero-desk@2x.webp') 2x
+  );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 900px;
+}
+
+.title-hero {
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.text-hero{
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 400px;
+    line-height: 1.5;
+    text-align: left;
+    padding-bottom: 32px;
+}
+
+.button-hero{
+    width: 206px;
+    margin-bottom: 0px;
+}
+.button-hero:hover{
+    background-color: rgb(95, 52, 116);
+}
+
+}
+
+
+
+
