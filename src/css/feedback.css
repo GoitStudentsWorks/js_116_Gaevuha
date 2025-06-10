@@ -1,10 +1,18 @@
 /* Мобільна версія */
+.feedback{
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
 .swiper {
   max-width: 100%;
-  margin-top: 64px;
   margin-bottom: 0px;
-  min-height: 254px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
+
 
 .swiper-slide {
   display: flex;
@@ -12,6 +20,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+  margin-bottom: 26px;
 }
 
 .swiper-button-next,
@@ -38,22 +47,40 @@
   line-height: 1.5;
   letter-spacing: 0;
   text-align: center;
+  margin-bottom: 16px;
 }
 
 .swiper-pagination{
-  margin-top: 0px;
+  position: relative !important;
+  display: flex !important;
+  justify-content: center;
+  gap: 9px;
 }
 
-.swiper .swiper-pagination-bullet {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
   opacity: 1 !important;
+  display: block !important;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 !important;
+  position: relative;
 }
+
 
 .swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: rgb(255, 255, 255) !important;
-  width: 8px;
+  width: 7px;
   height: 8px;
   margin: 0 9px;
+}
+
+.swiper-pagination-bullet.active {
+  background: #fff !important;
+  transform: scale(1.2);
 }
 
 .rating {
@@ -74,7 +101,6 @@
 }
 
 .button-feedback{
-    margin-top: 16px;
     display: block;
     border: none;
     width: 100%;
@@ -93,7 +119,6 @@
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
-    margin-bottom: 64px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -104,11 +129,14 @@
 /* Планшетна версія */
 @media screen and (min-width: 768px) {
 .swiper {
-  min-height: 298px;
+  min-height: 238px;
 }
 
+
 .swiper-slide {
-  padding: 93px;
+  padding-left: 93px;
+  padding-right: 93px;
+  margin-bottom: 0px;
 }
 
 .swiper-button-next,
@@ -146,7 +174,6 @@
 }
 
 .button-feedback{
-    margin-top: 26px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -159,9 +186,15 @@
 /* Десктопна версія */
 @media screen and (min-width: 1440px) {
 
+.feedback{
+  padding-bottom: 112px;
+}
+
 .swiper {
   min-height: 339px;
+  margin-bottom: 0;
 }
+
 
 .swiper-slide {
   padding-left: 223px;
@@ -174,8 +207,6 @@
 }
 
 .button-feedback{
-    margin-top: 90px;
-    margin-bottom: 112px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -187,6 +218,15 @@
 .button-feedback:hover{
     background-color: rgb(95, 52, 116);
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: var(--swiper-navigation-top-offset, 25%)!important;
 }
+
+
+}
+
+
 
 

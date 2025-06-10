@@ -124,37 +124,26 @@ export async function getFeedback(page = 1) {
   const params = { limit, page };
 
   try {
-    // Перший фідбек
+    // перша сторінка з лімітом 25
     const resFirst = await axios.get(endPoint, { params });
-    const resFirstArray = resFirst.data.data;
-    const firstFeedback = resFirstArray[0];
-    dataFeedback.push(firstFeedback);
+    dataFeedback.push(...resFirst.data.data);
+    console.log(resFirst.data)
 
+    // наступні сотрінки крім останьої з лімітом 25
     const total = resFirst.data.total;
     const maxPage = Math.ceil(total / limit);
+    for (let index = 2; index < maxPage; index++) {
+      const res = await axios.get(endPoint, {params: {limit, page: index}
+      });
+      dataFeedback.push(...res.data.data);
+    }
 
-    // Рандомний фідбек
-    let randomPage;
-    do {
-      randomPage = Math.floor(Math.random() * maxPage) + 1;
-    } while (randomPage === 1 || randomPage === maxPage);
-
-    const resThird = await axios.get(endPoint, {
-      params: { limit, page: randomPage }
-    });
-    const resThirdArray = resThird.data.data;
-    const randomFeedback =
-      resThirdArray[Math.floor(Math.random() * resThirdArray.length)];
-    dataFeedback.push(randomFeedback);
-
-    // Останній фідбек
-    const resSecond = await axios.get(endPoint, {
-      params: { limit, page: maxPage }
-    });
-    const resSecondArray = resSecond.data.data;
-    const lastFeedback = resSecondArray.at(-1);
-    dataFeedback.push(lastFeedback);
-    return dataFeedback;
+    //остання сторінка
+    const lastlimit = total - (limit*(maxPage-1)) 
+    const reslast = await axios.get(endPoint, { params: {limit: lastlimit, page:maxPage} });
+    dataFeedback.push(...reslast.data.data);
+    console.log(dataFeedback);
+        return dataFeedback;
 
   } catch (error) {
     console.error('Помилка при отриманні відгуків:', error.message);
