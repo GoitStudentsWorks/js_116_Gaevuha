@@ -188,6 +188,7 @@
 @media screen and (min-width: 1440px) {
 
 .feedback{
+  padding-top: 112px;
   padding-bottom: 112px;
 }
 
