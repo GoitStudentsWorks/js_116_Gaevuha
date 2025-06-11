@@ -1,5 +1,21 @@
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #1e1c1f;
+  border: 0.5px solid rgba(255, 255, 255, 0.153);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #242323;
+
 }
 
 .backdrop {
@@ -235,6 +251,10 @@ body.modal-open {
 /* TABLET */
 
 @media screen and (min-width:768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
   .modal {
     max-width: 702px;
     padding: 64px 24px;
@@ -293,6 +313,10 @@ body.modal-open {
 /* DESKTOP */
 
 @media screen and (min-width:1440px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
   .modal {
     min-width: 1312px;
     padding: 64px;
