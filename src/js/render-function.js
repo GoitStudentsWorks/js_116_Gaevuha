@@ -1,7 +1,8 @@
 import { refs } from './refs.js';
 import { allArtists } from './artists-api.js';
 import spritePath from './sprite.js';
-import placeholderІmageMini from '../img/placeholder-image-mini.jpg';
+import placeholderImageMini from '../img/placeholder-image-mini.jpg';
+
 
 const iconId = 'icon-youtube';
 const iconLeanMoreId = 'learn-more'
@@ -44,7 +45,7 @@ export function renderArtists() {
         .map(genre => `<li class="artist-genre">${genre}</li>`)
         .join('');
 
-      const imageSrc = artist.strArtistThumb || `${placeholderІmageMini}`;
+      const imageSrc = artist.strArtistThumb || `${placeholderImageMini}`;
 
       const description = truncateText(artist.strBiographyEN, limit);
 
