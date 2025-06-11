@@ -27,3 +27,15 @@ export function hideModal() {
   document.body.classList.remove('modal-open');
   window.removeEventListener('keydown', handleEscKey);
 }
+
+export function showLoaderLearnMore(btnElem, loaderElem) {
+  btnElem.style.display = 'none';
+  loaderElem.style.margin = '0';
+  loaderElem.style.display = 'block';
+  loaderElem.style.height = '27px';
+}
+
+export function hideLoaderLearnMore(btnElem, loaderElem) {
+  btnElem.style.display = '';
+  loaderElem.style.display = 'none';
+}
