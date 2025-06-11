@@ -35,8 +35,8 @@ export function initSwiper() {
       clickable: true,
       type: 'custom',
       renderCustom: function(swiper, current, total) {
-        console.log(`current= ${current}`);
-        console.log(`total = ${total}`)
+        // console.log(`current= ${current}`);
+        // console.log(`total = ${total}`)
         if (current === 1) {
           return `
             <span class="swiper-pagination-bullet active" data-index="0"></span>

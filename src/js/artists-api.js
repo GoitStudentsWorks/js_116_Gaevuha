@@ -108,7 +108,7 @@ export async function getArtistById(artistId) {
   const endPoint = `/artists/${artistId}`;
   try {
     const res = await axios.get(endPoint);
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (error) {
     console.error('Помилка при отриманні артиста:', error.message);
@@ -141,7 +141,7 @@ export async function getFeedback(page = 1) {
     // перша сторінка з лімітом 25
     const resFirst = await axios.get(endPoint, { params });
     dataFeedback.push(...resFirst.data.data);
-    console.log(resFirst.data)
+    // console.log(resFirst.data)
 
     // наступні сотрінки крім останьої з лімітом 25
     const total = resFirst.data.total;
@@ -156,7 +156,7 @@ export async function getFeedback(page = 1) {
     const lastlimit = total - (limit*(maxPage-1)) 
     const reslast = await axios.get(endPoint, { params: {limit: lastlimit, page:maxPage} });
     dataFeedback.push(...reslast.data.data);
-    console.log(dataFeedback);
+    // console.log(dataFeedback);
         return dataFeedback;
 
   } catch (error) {
