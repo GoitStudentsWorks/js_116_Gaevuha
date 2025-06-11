@@ -15,7 +15,11 @@ let page = 1;
 const limit = 8;
 let totalPages = 0;
 let resizeTimeout;
+
 export let dataAllGenre;
+
+const loaderElement = document.querySelector('.section-artists-loader');
+
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -31,7 +35,6 @@ export async function getArtists(currentPage = 1) {
   try {
 
     const res = await axios.get(endPoint, { params });
-
     return res.data;
   } catch (error) {
     console.error('Помилка при завантаженні артистів:', error.message);
@@ -39,12 +42,13 @@ export async function getArtists(currentPage = 1) {
   }
 }
 
-// showLoader();
+
+showLoader(loaderElement);
 getArtists(page).then(data => {
   allArtists = data.artists;
   totalPages = Math.ceil(data.totalArtists / limit);
   renderArtists();
-  hideLoader();
+  hideLoader(loaderElement);
 
   if (page >= totalPages) {
     hideLoadMoreButton();
@@ -55,37 +59,35 @@ getArtists(page).then(data => {
 })
   .catch(error => {
     console.error('Error during initial loading of artists:', error.message);
-    hideLoader();
+    hideLoader(loaderElement);
   });;
 
 async function handleLoadMoreClick() {
-  showLoader();
-  page += 1;
+    showLoader(loaderElement);
+    page += 1;
 
-  try {
-    const data = await getArtists(page);
-    const newArtists = data.artists;
-    dataAllGenre = [...dataAllGenre, ...newArtists.map(({ genres, _id }) => ({ genres, _id }))];
-    console.log('наступні запуск', dataAllGenre);
+    try {
+        const data = await getArtists(page);
+        const newArtists = data.artists;
+         dataAllGenre = [...dataAllGenre, ...newArtists.map(({ genres, _id }) => ({ genres, _id }))];
+        if (!newArtists.length) {
+            alert("We're sorry, there are no more artists to load.");
+            hideLoader(loaderElement);
+            hideLoadMoreButton();
+            return;
+        }
 
-    if (!newArtists.length) {
-      alert("We're sorry, there are no more artists to load.");
-      hideLoader();
-      hideLoadMoreButton();
-      return;
+        allArtists = [...allArtists, ...newArtists];
+        renderArtists();
+        hideLoader(loaderElement);
+
+        if (page >= totalPages) {
+            hideLoadMoreButton();
+        }
+    } catch (error) {
+        console.error('Error loading new artists:', error.message)
+        hideLoader(loaderElement);
     }
-
-    allArtists = [...allArtists, ...newArtists];
-    renderArtists();
-    hideLoader();
-
-    if (page >= totalPages) {
-      hideLoadMoreButton();
-    }
-  } catch (error) {
-    console.error('Error loading new artists:', error.message)
-    hideLoader();
-  }
 }
 
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
@@ -134,37 +136,26 @@ export async function getFeedback(page = 1) {
   const params = { limit, page };
 
   try {
-    // Перший фідбек
+    // перша сторінка з лімітом 25
     const resFirst = await axios.get(endPoint, { params });
-    const resFirstArray = resFirst.data.data;
-    const firstFeedback = resFirstArray[0];
-    dataFeedback.push(firstFeedback);
+    dataFeedback.push(...resFirst.data.data);
+    console.log(resFirst.data)
 
+    // наступні сотрінки крім останьої з лімітом 25
     const total = resFirst.data.total;
     const maxPage = Math.ceil(total / limit);
+    for (let index = 2; index < maxPage; index++) {
+      const res = await axios.get(endPoint, {params: {limit, page: index}
+      });
+      dataFeedback.push(...res.data.data);
+    }
 
-    // Рандомний фідбек
-    let randomPage;
-    do {
-      randomPage = Math.floor(Math.random() * maxPage) + 1;
-    } while (randomPage === 1 || randomPage === maxPage);
-
-    const resThird = await axios.get(endPoint, {
-      params: { limit, page: randomPage }
-    });
-    const resThirdArray = resThird.data.data;
-    const randomFeedback =
-      resThirdArray[Math.floor(Math.random() * resThirdArray.length)];
-    dataFeedback.push(randomFeedback);
-
-    // Останній фідбек
-    const resSecond = await axios.get(endPoint, {
-      params: { limit, page: maxPage }
-    });
-    const resSecondArray = resSecond.data.data;
-    const lastFeedback = resSecondArray.at(-1);
-    dataFeedback.push(lastFeedback);
-    return dataFeedback;
+    //остання сторінка
+    const lastlimit = total - (limit*(maxPage-1)) 
+    const reslast = await axios.get(endPoint, { params: {limit: lastlimit, page:maxPage} });
+    dataFeedback.push(...reslast.data.data);
+    console.log(dataFeedback);
+        return dataFeedback;
 
   } catch (error) {
     console.error('Помилка при отриманні відгуків:', error.message);

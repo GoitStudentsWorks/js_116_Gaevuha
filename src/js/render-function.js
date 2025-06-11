@@ -6,8 +6,6 @@ import placeholderІmageMini from '../img/placeholder-image-mini.jpg';
 const iconId = 'icon-youtube';
 const iconLeanMoreId = 'learn-more'
 
-
-
 function truncateText(text, limit) {
   if (!text) return 'No description available';
 
@@ -84,15 +82,14 @@ export function renderArtists() {
   refs.artistsList.innerHTML = markup;
 }
 
-export function showLoader() {
-  const loader = document.querySelector('.loader');
+export function showLoader(loader) {
   loader.style.display = 'block';
 }
 
-export function hideLoader() {
-  const loader = document.querySelector('.loader');
+export function hideLoader(loader) {
   loader.style.display = 'none';
 }
+
 export function showLoadMoreButton() {
   const buttonLoadMore = document.querySelector('.load-more-btn');
   buttonLoadMore.style.display = 'block';
@@ -207,14 +204,12 @@ export async function createdModal(data) {
 // FEEDBACK
 export function renderFeedback(feedbackData) {
   const wrapperElem = document.querySelector('.swiper-wrapper');
-
   const markup = feedbackData.map(({ name, rating, descr }) => `
     <div class="swiper-slide">
-        <div class="rating" data-rating="${rating}"></div>
-        <p class="feedback-descr">"${descr}"</p>
-        <p class="feedback-name">${name}</p>
+      <div class="rating" data-rating="${rating}"></div>
+      <p class="feedback-descr">"${descr}"</p>
+      <p class="feedback-name">${name}</p>
     </div>
   `).join('');
-
   wrapperElem.innerHTML = markup;
 }
