@@ -194,14 +194,12 @@ export async function createdModal(data) {
 
 export function renderFeedback(feedbackData) {
   const wrapperElem = document.querySelector('.swiper-wrapper');
-
   const markup = feedbackData.map(({ name, rating, descr }) => `
     <div class="swiper-slide">
-        <div class="rating" data-rating="${rating}"></div>
-        <p class="feedback-descr">"${descr}"</p>
-        <p class="feedback-name">${name}</p>
+      <div class="rating" data-rating="${rating}"></div>
+      <p class="feedback-descr">"${descr}"</p>
+      <p class="feedback-name">${name}</p>
     </div>
   `).join('');
-
   wrapperElem.innerHTML = markup;
 }
