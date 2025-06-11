@@ -1,8 +1,9 @@
-    /* Мобільна версія */ 
+/* Мобільна версія */
 .hero {
   position: relative;
   background-color: #23132b;
   overflow: hidden;
+  padding-top: 64px;
 }
 
 .hero::before {
@@ -32,7 +33,7 @@
 .hero-list {
   display: flex;
   flex-direction: column;
-  padding-top: 64px;
+  gap: 64px;
 }
 
 .title-hero {
@@ -52,7 +53,7 @@
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .button-hero {
@@ -76,7 +77,6 @@
   font-weight: 500;
   line-height: 1.5;
   text-align: center;
-  margin-bottom: 64px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -105,6 +105,10 @@
 
 /* Планшетна версія */
 @media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 32px;
+  }
+
   .hero::before {
     height: 125px;
   }
@@ -114,7 +118,7 @@
   }
 
   .hero-list {
-    padding-top: 32px;
+    gap: 32px;
   }
 
   .hero-item {
@@ -124,7 +128,7 @@
   .title-hero {
     position: relative;
     z-index: 2;
-    margin-bottom: 37px;
+    margin-bottom: 24px;
   }
 
   .text-hero {
@@ -132,11 +136,10 @@
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    padding-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   .button-hero {
-    margin-bottom: 32px;
     width: 246px;
   }
 
@@ -148,9 +151,7 @@
     background-repeat: no-repeat;
     height: 632px;
   }
-
-@media (min-resolution: 192dpi) and (min-width: 768px) and
-    (max-width: 1439px) {
+@media (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1439px) {
     .bg-image {
       background-image: url(../img/hero-tab@2x.webp);
     }
@@ -158,14 +159,18 @@
 }
 /* Десктопна версія */
 @media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 0;
+  }
   .hero-list {
     flex-direction: row;
     padding-top: 0px;
+    gap: 31px;
+    justify-content: space-between;
   }
 
   .hero-item {
     padding-top: 216px;
-    padding-right: 31px;
   }
 
   .img-item {
@@ -200,7 +205,6 @@
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    padding-bottom: 32px;
   }
 
   .button-hero {
