@@ -94,7 +94,7 @@ refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
 //   if (e.target.classList.contains('learn-more-artist-btn')) {
 //     const artistId = e.target.dataset.artistId;
 //     console.log(artistId);
-//     // виклик модалки
+//     // виклик модалки.
 //   }
 // });
 
