@@ -120,7 +120,7 @@ export async function createdModal(data) {
   const genresMarkup = genres.map(
     genre => `<li class="artist__genre-item">${genre}</li>`
   ).join('');
-  console.log('genres:', genres);
+  // console.log('genres:', genres);
   const albumMarkup = albumsList.map(({ strAlbum, intYearReleased, tracks = [] }) => {
     const tracksMarkup = tracks.map(({ strTrack, intDuration, movie }) => {
       const durationMin = Math.floor(intDuration / 60000);
@@ -198,7 +198,7 @@ export async function createdModal(data) {
     </li>
   `;
 
-  console.log('this is a foto artist:', data);
+  // console.log('this is a foto artist:', data);
   refs.modalAlbumList.innerHTML = markup;
 }
 
