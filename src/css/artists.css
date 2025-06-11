@@ -25,20 +25,17 @@
 
 .artist-image-wrapper {
     border-radius: 16px;
-    position: relative;
     width: 288px;
     height: 177px;
     background-color: #a9a9a9;
-    overflow: hidden;
     margin-bottom: 24px;
 }
 .artist-image {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    border-radius: 16px;
+    width: 288px;
+    height: 177px;
     object-fit: cover;
-    z-index: 1;
+    object-position: top;
 }
 
 .artist-content {
@@ -87,11 +84,8 @@
     color: #fff;
 }
 
-.load-more-wrapper {
-    margin-top: 32px;
-}
-
 .load-more-btn {
+    margin-top: 32px;
     border: none;
     border-radius: 12px;
     padding: 10px 24px;
@@ -105,7 +99,8 @@
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.load-more-btn:active{
+.load-more-btn:focus,
+.load-more-btn:active {
     background-color: rgb(95, 52, 116);
 }
 
@@ -119,18 +114,21 @@
         width: 704px;   
     }
 
+    .artist-image {
+        height: 432px;
+        width: 704px;
+    }
+
     .artist-content {
         width: 704px;
     }
-    .load-more-wrapper {
-       display: flex;
-       justify-content: center;
-        margin-top: 64px;
-    }
 
     .load-more-btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 64px;
        width: 340px;
-     }
+    }
 }
 @media screen and (min-width: 1440px) {
     .artists-section {
@@ -148,14 +146,19 @@
         height: 393px;
     }
 
+    .artist-image {
+        width: 640px;
+        height: 393px;
+    }
+
     .artist-content {
         width: 640px;
     }
     .load-more-btn {
         width: 170px;
     }
-    .load-more-btn:hover {
-        width: 170px;
+    .load-more-btn:hover,
+    .load-more-btn:focus {
         background-color: rgb(95, 52, 116);
     }
 
@@ -170,9 +173,12 @@
     fill: #fff;
 }
 
-.loader {
+.section-artists-loader {
     display: block;
     margin: 32px auto;
+}
+
+.loader {
     position: relative;
     width: 85px;
     height: 50px;
