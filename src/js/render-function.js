@@ -72,7 +72,7 @@ export function renderArtists() {
                 <use href="${spritePath}#${iconLeanMoreId}"></use>
               </svg>
             </button>
-             <span class="loader js-learn-more" style="display: none;"></span>
+             <span class="loader section-artists-loader" style="display: none;"></span>
           </div>
         </li>
       `;
