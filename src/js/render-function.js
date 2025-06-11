@@ -72,6 +72,7 @@ export function renderArtists() {
                 <use href="${spritePath}#${iconLeanMoreId}"></use>
               </svg>
             </button>
+             <span class="loader js-learn-more" style="display: none;"></span>
           </div>
         </li>
       `;
@@ -98,12 +99,15 @@ export function hideLoadMoreButton() {
   buttonLoadMore.style.display = 'none';
 }
 
+// MODAL
+
 export async function createdModal(data) {
   const {
     _id,
     strArtist,
     strArtistThumb,
     intFormedYear,
+    intDiedYear,
     intMembers,
     strCountry,
     strGender,
@@ -161,7 +165,12 @@ export async function createdModal(data) {
     <ul class="artist__info">
   <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Years active</h4>
-    <p class="artist__info-value">${intFormedYear}–present</p>
+    <p class="artist__info-value">${intFormedYear && intDiedYear
+      ? `${intFormedYear} – ${intDiedYear}`
+      : intFormedYear
+        ? `${intFormedYear} – present`
+        : 'information missing'
+    }</p>
   </li>
   <li class="artist__info-item">
     <h4 class="artist__subtitle__info">Sex</h4>
@@ -192,6 +201,7 @@ export async function createdModal(data) {
   refs.modalAlbumList.innerHTML = markup;
 }
 
+// FEEDBACK
 export function renderFeedback(feedbackData) {
   const wrapperElem = document.querySelector('.swiper-wrapper');
   const markup = feedbackData.map(({ name, rating, descr }) => `

@@ -15,7 +15,11 @@ let page = 1;
 const limit = 8;
 let totalPages = 0;
 let resizeTimeout;
+
+export let dataAllGenre;
+
 const loaderElement = document.querySelector('.section-artists-loader');
+
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -29,6 +33,7 @@ export async function getArtists(currentPage = 1) {
   const endPoint = `/artists`;
 
   try {
+
     const res = await axios.get(endPoint, { params });
     return res.data;
   } catch (error) {
@@ -36,6 +41,7 @@ export async function getArtists(currentPage = 1) {
     throw error;
   }
 }
+
 
 showLoader(loaderElement);
 getArtists(page).then(data => {
@@ -49,6 +55,7 @@ getArtists(page).then(data => {
   } else {
     showLoadMoreButton();
   }
+  dataAllGenre = allArtists.map(({ genres, _id }) => ({ genres, _id }));
 })
   .catch(error => {
     console.error('Error during initial loading of artists:', error.message);
@@ -62,7 +69,7 @@ async function handleLoadMoreClick() {
     try {
         const data = await getArtists(page);
         const newArtists = data.artists;
-        
+         dataAllGenre = [...dataAllGenre, ...newArtists.map(({ genres, _id }) => ({ genres, _id }))];
         if (!newArtists.length) {
             alert("We're sorry, there are no more artists to load.");
             hideLoader(loaderElement);
@@ -85,13 +92,15 @@ async function handleLoadMoreClick() {
 
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
 
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('learn-more-artist-btn')) {
-    const artistId = e.target.dataset.artistId;
-    console.log(artistId);
-    // виклик модалки
-  }
-});
+// document.addEventListener('click', e => {
+//   if (e.target.classList.contains('learn-more-artist-btn')) {
+//     const artistId = e.target.dataset.artistId;
+//     console.log(artistId);
+//     // виклик модалки.
+//   }
+// });
+
+// MODAL API
 
 export async function getArtistById(artistId) {
   const endPoint = `/artists/${artistId}`;
@@ -115,6 +124,10 @@ export async function getArtistsAlbumsId(artistId) {
     throw error;
   }
 }
+
+export async function getArtistsGenre() { }
+
+// FEEDBACK API
 
 export async function getFeedback(page = 1) {
   const dataFeedback = [];
