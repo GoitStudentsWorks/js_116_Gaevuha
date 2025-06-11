@@ -11,15 +11,21 @@
   }
   
   .about__image {
-  position: relative;
+  /* position: relative; */
   width: 280px;
   height: 168px;
   border-radius: 16px;
-  overflow: hidden;
+  background-color: #a9a9a9;
+  /* background-color: #060307; */
+  /* overflow: hidden; */
 }
 
 .about__image img {
-  transform: translateY(-10px);
+  border-radius: 16px;
+  width: 280px;
+  height: 168px;
+  object-fit: cover;
+  object-position: bottom;
 }
 
   .about__content {
@@ -49,6 +55,11 @@
     .about__image {
       width: 704px;
       height: 413px;
+  }
+
+  .about__image img {
+    width: 704px;
+    height: 413px;
   }
 
     .about__icon {
@@ -81,11 +92,12 @@
     .about__image {
       width: 640px;
       height: 665px;
-      background-color: black;
       border-radius: 20px;
       }
-      .about__image img {
-      transform: translateY(-1px);
+      .about__image img {        
+        width: 640px;
+        height: 665px;
+        
       }
 
     .about__content {
