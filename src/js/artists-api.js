@@ -63,6 +63,7 @@ getArtists(page).then(data => {
   });;
 
 async function handleLoadMoreClick() {
+  hideLoadMoreButton()
     showLoader(loaderElement);
     page += 1;
 
@@ -78,7 +79,8 @@ async function handleLoadMoreClick() {
         }
 
         allArtists = [...allArtists, ...newArtists];
-        renderArtists();
+      renderArtists();
+      showLoadMoreButton()
         hideLoader(loaderElement);
 
         if (page >= totalPages) {
@@ -91,14 +93,6 @@ async function handleLoadMoreClick() {
 }
 
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
-
-// document.addEventListener('click', e => {
-//   if (e.target.classList.contains('learn-more-artist-btn')) {
-//     const artistId = e.target.dataset.artistId;
-//     console.log(artistId);
-//     // виклик модалки.
-//   }
-// });
 
 // MODAL API
 
