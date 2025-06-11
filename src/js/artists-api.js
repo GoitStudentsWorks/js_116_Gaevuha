@@ -60,36 +60,44 @@ getArtists(page).then(data => {
   .catch(error => {
     console.error('Error during initial loading of artists:', error.message);
     hideLoader(loaderElement);
-  });;
+  });
 
 async function handleLoadMoreClick() {
-  hideLoadMoreButton()
-    showLoader(loaderElement);
-    page += 1;
+  refs.loadMoreBtn.disabled = true;
+  hideLoadMoreButton();
+  showLoader(loaderElement);
+  page += 1;
 
-    try {
-        const data = await getArtists(page);
-        const newArtists = data.artists;
-         dataAllGenre = [...dataAllGenre, ...newArtists.map(({ genres, _id }) => ({ genres, _id }))];
-        if (!newArtists.length) {
-            alert("We're sorry, there are no more artists to load.");
-            hideLoader(loaderElement);
-            hideLoadMoreButton();
-            return;
-        }
+  try {
+    const data = await getArtists(page);
+    const newArtists = data.artists;
 
-        allArtists = [...allArtists, ...newArtists];
-      renderArtists();
-      showLoadMoreButton()
-        hideLoader(loaderElement);
+    dataAllGenre = [
+      ...dataAllGenre,
+      ...newArtists.map(({ genres, _id }) => ({ genres, _id }))
+    ];
 
-        if (page >= totalPages) {
-            hideLoadMoreButton();
-        }
-    } catch (error) {
-        console.error('Error loading new artists:', error.message)
-        hideLoader(loaderElement);
+    if (!newArtists.length) {
+      alert("We're sorry, there are no more artists to load.");
+      hideLoader(loaderElement);
+      hideLoadMoreButton();
+      return;
     }
+
+    allArtists = [...allArtists, ...newArtists];
+    renderArtists();
+
+    if (page >= totalPages) {
+      hideLoadMoreButton();
+    } else {
+      showLoadMoreButton();
+    }
+  } catch (error) {
+    console.error('Error loading new artists:', error.message);
+  } finally {
+    hideLoader(loaderElement);
+    refs.loadMoreBtn.disabled = false;
+  }
 }
 
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreClick);
