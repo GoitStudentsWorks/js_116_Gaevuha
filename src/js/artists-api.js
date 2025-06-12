@@ -141,22 +141,14 @@ export async function getFeedback(page = 1) {
     // перша сторінка з лімітом 25
     const resFirst = await axios.get(endPoint, { params });
     dataFeedback.push(...resFirst.data.data);
-    // console.log(resFirst.data)
 
-    // наступні сотрінки крім останьої з лімітом 25
     const total = resFirst.data.total;
     const maxPage = Math.ceil(total / limit);
-    for (let index = 2; index < maxPage; index++) {
-      const res = await axios.get(endPoint, {params: {limit, page: index}
-      });
-      dataFeedback.push(...res.data.data);
-    }
 
     //остання сторінка
     const lastlimit = total - (limit*(maxPage-1)) 
-    const reslast = await axios.get(endPoint, { params: {limit: lastlimit, page:maxPage} });
+    const reslast = await axios.get(endPoint, { params: {limit: limit, page:maxPage} });
     dataFeedback.push(...reslast.data.data);
-    // console.log(dataFeedback);
         return dataFeedback;
 
   } catch (error) {
