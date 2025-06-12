@@ -39,3 +39,4 @@ export function handlerBackdropClick(e) {
     hideModal();
   }
 }
+
