@@ -1,0 +1,37 @@
+<div class="modal-overley-feedback" data-modal>
+            <div class="modal-feedback">
+                <button class="modal-feedback-btn-close" data-modal-feedback-close type="button">
+                    <svg class="close-modal-icon" width="32" height="32">
+                            <use href="/img/sprite.svg#icon-x"></use>
+                    </svg>
+                </button>
+                <p class="modal-feedback-title">Submit feedback</p>
+                <form class="modal-feedback-form">
+                    <div class="modal-feedback-field">
+                        <label for="user-name" class="modal-feedback-label">Name</label>
+                            <input type="text" class="modal-feedback-input" name="user-name" placeholder="Emily" required id="user-name">
+                    </div>
+                    <div class="modal-feedback-field modal-feedback-field-textarea">
+                        <label for="user-comment" class="modal-feedback-label">Message</label>
+                        <textarea class="modal-feedback-textarea" name="user-comment" id="user-comment"
+                            placeholder="Type your message..."></textarea>
+                    </div>
+                    <div class="modal-feedback-field">
+                    <label class="modal-feedback-label"></label>
+                    <div class="rating-group">
+                        <input type="radio" name="rating" id="star-5" value="5">
+                        <label for="star-5" title="5 stars"></label>
+                        <input type="radio" name="rating" id="star-4" value="4">
+                        <label for="star-4" title="4 stars"></label>
+                        <input type="radio" name="rating" id="star-3" value="3">
+                        <label for="star-3" title="3 stars"></label>
+                        <input type="radio" name="rating" id="star-2" value="2">
+                        <label for="star-2" title="2 stars"></label>
+                        <input type="radio" name="rating" id="star-1" value="1">
+                        <label for="star-1" title="1 star"></label>
+                    </div>
+                    </div>
+                    <button class="modal-btn-feedback" type="submit">Submit</button>
+                </form>
+            </div>
+        </div> 
