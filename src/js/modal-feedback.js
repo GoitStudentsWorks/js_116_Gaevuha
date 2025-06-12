@@ -6,6 +6,9 @@ const btnCloseFeedbackModalElem = document.querySelector('[data-modal-feedback-c
 const modalFeedbackElem = document.querySelector('.modal-feedback');
 const modalOverlayFeedback = document.querySelector('.modal-overley-feedback');
 const formFeedbackElem = document.querySelector('.modal-feedback-form');
+const nameInput = formFeedbackElem.querySelector('[name="user-name"]');
+const commentInput = formFeedbackElem.querySelector('[name="user-comment"]');
+
 
 
 btnOpenFeedbackModalElem.addEventListener('click', (event) =>{
@@ -61,67 +64,87 @@ formFeedbackElem.addEventListener('submit', (event) => {
 function checkForm(nameInputFeedback, commentInputFeedback, rating) {
   const errors = [];
 
+  formFeedbackElem.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+
   if (nameInputFeedback.length < 3 || nameInputFeedback.length > 16) {
+    const nameInput = document.querySelector('[name="user-name"]');
+    nameInput.classList.add('error');
+
     iziToast.show({
-    class: 'custom-toast',
-    title: '',
-    message: `The name must consist of 3...16 characters!`,
-    backgroundColor: '#000000',
-    messageColor: '#FFFFFF',
-    titleColor: '#FFFFFF',
-    maxWidth: '30%',
-    position: 'center',
-    timeout: 5000,
-    progressBar: true,
-    close: true,
-    transitionIn: 'fadeInUp',
-    transitionOut: 'fadeOut',
-});
-errors.push("Error");
+      class: 'custom-toast',
+      title: '',
+      message: `The name must consist of 3...16 characters!`,
+      backgroundColor: '#000000',
+      messageColor: '#FFFFFF',
+      titleColor: '#FFFFFF',
+      maxWidth: '30%',
+      position: 'center',
+      timeout: 5000,
+      progressBar: true,
+      close: true,
+      transitionIn: 'fadeInUp',
+      transitionOut: 'fadeOut',
+    });
+
+    errors.push("Error");
   }
 
   if (!rating) {
     errors.push("Please select a rating.");
-        iziToast.show({
-    class: 'custom-toast',
-    title: '',
-    message: 'Choose a rating!',
-    backgroundColor: '#000000',
-    messageColor: '#FFFFFF',
-    titleColor: '#FFFFFF',
-    maxWidth: '30%',
-    position: 'center', // по центру
-    timeout: 5000,
-    progressBar: true,
-    close: true,
-    transitionIn: 'fadeInUp',
-    transitionOut: 'fadeOut',
-});
-errors.push("Error");
+    iziToast.show({
+      class: 'custom-toast',
+      title: '',
+      message: 'Choose a rating!',
+      backgroundColor: '#000000',
+      messageColor: '#FFFFFF',
+      titleColor: '#FFFFFF',
+      maxWidth: '30%',
+      position: 'center',
+      timeout: 5000,
+      progressBar: true,
+      close: true,
+      transitionIn: 'fadeInUp',
+      transitionOut: 'fadeOut',
+    });
   }
 
   if (commentInputFeedback.length < 10 || commentInputFeedback.length > 512) {
-            errors.push("Please select a rating.");
-        iziToast.show({
-    class: 'custom-toast',
-    title: '',
-    message: 'The comment must consist of 10...512 characters!',
-    backgroundColor: '#000000',
-    messageColor: '#FFFFFF',
-    titleColor: '#FFFFFF',
-    maxWidth: '30%',
-    position: 'center', // по центру
-    timeout: 5000,
-    progressBar: true,
-    close: true,
-    transitionIn: 'fadeInUp',
-    transitionOut: 'fadeOut',
-});
-errors.push("Error");
+    const commentTextarea = document.querySelector('[name="user-comment"]');
+    commentTextarea.classList.add('error');
+
+    iziToast.show({
+      class: 'custom-toast',
+      title: '',
+      message: 'The comment must consist of 10...512 characters!',
+      backgroundColor: '#000000',
+      messageColor: '#FFFFFF',
+      titleColor: '#FFFFFF',
+      maxWidth: '30%',
+      position: 'center',
+      timeout: 5000,
+      progressBar: true,
+      close: true,
+      transitionIn: 'fadeInUp',
+      transitionOut: 'fadeOut',
+    });
+
+    errors.push("Error");
   }
 
   return errors;
 }
+
+nameInput.addEventListener('input', () => {
+  if (nameInput.value.trim().length >= 3 && nameInput.value.trim().length <= 16) {
+    nameInput.classList.remove('error');
+  }
+});
+
+commentInput.addEventListener('input', () => {
+  if (commentInput.value.trim().length >= 10 && commentInput.value.trim().length <= 512) {
+    commentInput.classList.remove('error');
+  }
+});
 
 async function sendFeedback(data) {
   try {
