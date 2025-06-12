@@ -10,6 +10,7 @@
   flex-direction: column;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 24px;
+  padding-bottom: 48px;
 }
 
 .link-logo-ftr {
@@ -28,8 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  text-align: center;
-  padding-bottom: 48px;
+  text-align: center;  
 }
 
 .footer-item {
@@ -94,6 +94,7 @@
 
   .section-footer-nav {
     margin-bottom: 32px;
+    padding-bottom: 80px;
   }
 
   .icons-footer {
@@ -114,7 +115,6 @@
 
   .footer-nav {
     flex-direction: row;
-    padding-bottom: 80px;
   }
 
   .footer-item-link {
