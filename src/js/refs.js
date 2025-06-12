@@ -6,6 +6,5 @@ export const refs = {
   modalAlbumList: document.querySelector('.modal-list__album'),
   backdropModalElem: document.querySelector('.backdrop'),
   closeModalBtn: document.querySelector('.close-btn-modal'),
-  youtubeIcon: document.querySelector('.icon-youtube'),
 }
 
