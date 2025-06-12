@@ -157,3 +157,8 @@ line-height: 1.5%;
   background: url('/img/star_full_feedback.png') no-repeat center;
   background-size: contain;
 }
+
+.iziToast.custom-toast {
+    border: 1px solid #666666;
+    border-radius: 12px; 
+}
