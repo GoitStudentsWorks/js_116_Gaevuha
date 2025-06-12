@@ -39,6 +39,8 @@ function getLimitByWidth() {
 export function renderArtists() {
   const limit = getLimitByWidth();
 
+  refs.artistsList.innerHTML = '';
+
   const markup = allArtists
     .map(artist => {
       const genresMarkup = (artist.genres || [])
@@ -80,7 +82,7 @@ export function renderArtists() {
     })
     .join('');
 
-  refs.artistsList.innerHTML = markup;
+  refs.artistsList.insertAdjacentHTML('beforeend', markup);
 }
 
 export function showLoader(loader) {
