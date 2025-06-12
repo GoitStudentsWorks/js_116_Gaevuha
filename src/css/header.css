@@ -157,12 +157,14 @@ html {
     display: flex;
     font-weight: 400;
     font-size: 18px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .logo-icon {
     fill: #fff;
   }
 
+  .link-menu:focus,
   .link-menu:hover {
     color: rgb(95, 52, 116);
   }
