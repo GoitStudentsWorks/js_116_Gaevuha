@@ -93,11 +93,14 @@
       width: 640px;
       height: 665px;
       border-radius: 20px;
+      position: relative;
+      overflow: hidden;
       }
+
       .about__image img {        
         width: 640px;
-        height: 665px;
-        
+        height: 666px;
+        transform: translateY(-1px);
       }
 
     .about__content {
