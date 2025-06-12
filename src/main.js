@@ -5,6 +5,5 @@ import './js/storage.js';
 import './js/modal';
 import './js/handlers.js';
 import './js/feedback.js';
-import './js/index.js';
 import './js/header.js';
 import './js/modal-feedback.js';

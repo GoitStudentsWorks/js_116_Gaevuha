@@ -243,18 +243,20 @@ body.modal-open {
   width: 24px;
   height: 24px;
 }
+
 .icon-youtube {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--youtube-bg, #fff);
+  fill: var(--youtube-play, #343335);
   --youtube-bg: #fff;
   --youtube-play: #343335;
-  transition: 
-    --youtube-bg 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    --youtube-play 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-youtube:hover {
   --youtube-bg: #CC0000;
   --youtube-play: #fff;
 }
+
 
 
 /* TABLET */
