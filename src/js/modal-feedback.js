@@ -1,4 +1,5 @@
-
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 const btnOpenFeedbackModalElem = document.querySelector('[data-modal-feedback-open]');
 const btnCloseFeedbackModalElem = document.querySelector('[data-modal-feedback-close]');
@@ -46,13 +47,12 @@ formFeedbackElem.addEventListener('submit', (event) => {
 
   const errors = checkForm(nameInputFeedback, commentInputFeedback, ratingInputFeedback);
   if (errors.length > 0) {
-    alert(errors.join('\n'));
     return;
   }
 
   sendFeedback({
     name: nameInputFeedback,
-    descr: commentInputFeedback,  // <-- тут правильне ім'я поля
+    descr: commentInputFeedback,
     rating: ratingInputFeedback
   });
 });
@@ -62,15 +62,62 @@ function checkForm(nameInputFeedback, commentInputFeedback, rating) {
   const errors = [];
 
   if (nameInputFeedback.length < 3 || nameInputFeedback.length > 16) {
-    errors.push("Enter 3...16 characters");
+    iziToast.show({
+    class: 'custom-toast',
+    title: '',
+    message: `The name must consist of 3...16 characters!`,
+    backgroundColor: '#000000',
+    messageColor: '#FFFFFF',
+    titleColor: '#FFFFFF',
+    maxWidth: '30%',
+    position: 'center',
+    timeout: 5000,
+    progressBar: true,
+    close: true,
+    transitionIn: 'fadeInUp',
+    transitionOut: 'fadeOut',
+});
+errors.push("Error");
   }
 
   if (!rating) {
-    errors.push("Будь ласка, виберіть рейтинг.");
+    errors.push("Please select a rating.");
+        iziToast.show({
+    class: 'custom-toast',
+    title: '',
+    message: 'Choose a rating!',
+    backgroundColor: '#000000',
+    messageColor: '#FFFFFF',
+    titleColor: '#FFFFFF',
+    maxWidth: '30%',
+    position: 'center', // по центру
+    timeout: 5000,
+    progressBar: true,
+    close: true,
+    transitionIn: 'fadeInUp',
+    transitionOut: 'fadeOut',
+});
+errors.push("Error");
   }
 
   if (commentInputFeedback.length < 10 || commentInputFeedback.length > 512) {
-    errors.push("Коментар не може перевищувати 512 символів.");
+            errors.push("Please select a rating.");
+        iziToast.show({
+    class: 'custom-toast',
+    title: '',
+    message: 'The comment must consist of 10...512 characters!',
+    backgroundColor: '#000000',
+    messageColor: '#FFFFFF',
+    titleColor: '#FFFFFF',
+    maxWidth: '30%',
+    position: 'center', // по центру
+    timeout: 5000,
+    progressBar: true,
+    close: true,
+    transitionIn: 'fadeInUp',
+    transitionOut: 'fadeOut',
+});
+errors.push("Error");
   }
 
   return errors;
@@ -85,7 +132,21 @@ async function sendFeedback(data) {
     });
 
     if (response.ok) {
-      alert("Дякуємо за відгук!");
+iziToast.show({
+    class: 'custom-toast',
+    title: '',
+    message: 'Thanks for the feedback!',
+    backgroundColor: '#000000',
+    messageColor: '#FFFFFF',
+    titleColor: '#FFFFFF',
+    maxWidth: '30%',
+    position: 'center', // по центру
+    timeout: 5000,
+    progressBar: true,
+    close: true,
+    transitionIn: 'fadeInUp',
+    transitionOut: 'fadeOut',
+});
       formFeedbackElem.reset();
       closeModalFeedback();
     } else {
@@ -96,3 +157,5 @@ async function sendFeedback(data) {
     alert("Помилка з'єднання");
   }
 }
+
+
