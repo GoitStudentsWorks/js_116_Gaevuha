@@ -21,6 +21,10 @@
   padding-bottom: 24px;
 }
 
+.swiper-slide-active {
+  flex-direction: column;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   display: none !important;
