@@ -145,7 +145,7 @@ line-height: 1.5%;
 .rating-group label {
   width: 32px;
   height: 32px;
-  background: url('../img/star_empty_feedback.png') no-repeat center;
+  background: url('/img/star_empty_feedback.png') no-repeat center;
   background-size: contain;
   cursor: pointer;
   transition: 0.3s;
@@ -154,6 +154,6 @@ line-height: 1.5%;
 .rating-group input:checked ~ label,
 .rating-group label:hover,
 .rating-group label:hover ~ label {
-  background: url('../img/star_full_feedback.png') no-repeat center;
+  background: url('/img/star_full_feedback.png') no-repeat center;
   background-size: contain;
 }
