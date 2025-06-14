@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/js_116_Gaevuha/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artists Hub</title>
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet" />
+  <!-- normalize -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" />
+  <script type="module" crossorigin src="/js_116_Gaevuha/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/js_116_Gaevuha/assets/vendor-BT6NWGSC.js">
+  <link rel="stylesheet" crossorigin href="/js_116_Gaevuha/assets/vendor-zRPnpy_l.css">
+  <link rel="stylesheet" crossorigin href="/js_116_Gaevuha/assets/index-rur6fVY6.css">
+</head>
+
+<body>
+  <header class="section-header">
+  <div class="header">
+    <div class="container header-container">
+      <a class="link-logo" href="./index.html">
+        <svg class="logo-icon">
+          <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-logo"></use>
+        </svg>
+      </a>
+      <nav class="header-menu">
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a class="link-menu" href="#idArtists">Artists</a>
+          </li>
+          <li class="menu-item">
+            <a class="link-menu" href="#idAbout">About Us</a>
+          </li>
+          <li class="menu-item">
+            <a class="link-menu" href="#idReviews">Reviews</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="burger-btn" type="button" data-menu-open>
+        <svg class="burger-icon">
+          <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#i-burger"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" data-menu>
+    <div class="mobile-menu-container container">
+      <div class="header-mobile-menu">
+        <a class="link-logo" href="./index.html">
+          <svg class="logo-icon">
+            <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-logo"></use>
+          </svg>
+        </a>
+        <button class="btn-menu-close" data-menu-close>
+          <svg class="mobile-icon-close">
+            <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-x"></use>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-navigation">
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a class="link-menu" href="#idArtists">Artists</a>
+          </li>
+          <li class="menu-item">
+            <a class="link-menu" href="#idAbout">About Us</a>
+          </li>
+          <li class="menu-item">
+            <a class="link-menu" href="#idReviews">Reviews</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <!-- Loads the specified .html file -->
+
+    <section class="hero">
+  <div class="container">
+    <ul class="hero-list">
+      <li class="hero-item content-item">
+        <h1 class="title-hero">Discover Your Next Favorite Artist Today</h1>
+        <p class="text-hero">
+          Dive into a world of music discoveries with ArtistsHub – your personal
+          guide to the boundless universe of sound. Explore, filter, and learn
+          about your favorite artists all in one place.
+        </p>
+        <a href="#idArtists" class="button-hero">
+          Explore Artists
+          <svg class="icon-btn-hero" width="24" height="24">
+            <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-btn-hero"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="img-item">
+        <div class="bg-image"></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+    <section id="idArtists" class="artists-section" style="scroll-margin-top: -5px">
+  <div class="container">
+    <h2 class="artists-title">Artists</h2>
+    <p class="artists-subtitle">Explore Your New Favorite Artists</p>
+    <ul class="artists"></ul>
+    <span class="loader section-artists-loader" style="display: none"></span>
+    <button class="load-more-btn" style="display: none">
+      Load More
+      <svg class="arrow-down-icon" width="14" height="14">
+        <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#arrow-down"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <section class="about" id="idAbout" style="scroll-margin-top: 60px">
+  <div class="about__container container">
+    <div class="about__image">
+      <picture>
+        <source
+          srcset="/js_116_Gaevuha/assets/team-mobile-Cj22tvWd.webp 1x, /js_116_Gaevuha/assets/team-mobile@2x-Di8E1EFV.webp 2x"
+          media="(max-width: 767px)"
+          width="280"
+          height="169"
+        />
+        <source
+          srcset="/js_116_Gaevuha/assets/team-tablet-ByfOHIuI.webp 1x, /js_116_Gaevuha/assets/team-tablet@2x-DaKU-Ndn.webp 2x"
+          media="(max-width: 1439px)"
+          width="704"
+          height="414"
+        />
+        <img
+          srcset="/js_116_Gaevuha/assets/team-CYd2qik_.webp 1x, /js_116_Gaevuha/assets/team@2x-D1SL0GUV.webp 2x"
+          src="/js_116_Gaevuha/assets/team-CYd2qik_.webp"
+          alt="ArtistsHub Team"
+          width="640"
+          height="666"
+          class="made-img"
+        />
+      </picture>
+    </div>
+    <div class="about__content">
+     
+        <svg class="about__icon">
+          <use xlink:href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-logo-icon"></use>
+        </svg>
+      <h2 class="about__title">About ArtistsHub</h2>
+      <p class="about__text">
+        At ArtistsHub, our mission is to connect music lovers with the artists
+        they adore. We strive to create a vibrant community where discovering
+        new music is as enjoyable as listening to it.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="idReviews" class="feedback">
+  <div class="container">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-button-next">
+        <svg class="icon-arrow" width="24" height="24">
+          <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-right-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="swiper-button-prev">
+        <svg class="icon-arrow" width="24" height="24">
+          <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-left-arrow-alt"></use>
+        </svg>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <button class="button-feedback" data-modal-feedback-open>Leave feedback</button>
+  </div>
+</section>
+
+    
+
+  </main>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="section-footer-nav">
+      <a class="link-logo-ftr" href="./index.html">
+        <svg class="logo-icon-ftr">
+          <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-logo"></use>
+        </svg>
+      </a>
+      <ul class="footer-nav">
+        <li class="footer-item"><a href="#idArtists">Artists</a></li>
+        <li class="footer-item"><a href="#idAbout">About us</a></li>
+        <li class="footer-item"><a href="#idReviews">Reviews</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item-link">
+      <ul class="footer-links">
+        <li class="footer-link-adrs">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link-adress"
+          >
+            <svg class="icons-footer">
+              <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-footer-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-link-adrs">
+          <a
+            href="https://www.facebook.com/ "
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link-adress"
+          >
+            <svg class="icons-footer">
+              <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-footer-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-link-adrs">
+          <a
+            href="https://www.youtube.com/ "
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link-adress"
+          >
+            <svg class="icons-footer">
+              <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-footer-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <p class="footer-text">
+        <span>&#169;</span> 2025 ArtistsHub. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <div class="backdrop">
+  <div class="modal">
+    <button type="button" class="close-btn-modal">
+      <svg class="close-modal-icon" width="32" height="32">
+        <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-x"></use>
+      </svg>
+    </button>
+    <ul class="modal-list__album"></ul>
+  </div>
+</div>
+  <div class="modal-overley-feedback" data-modal>
+            <div class="modal-feedback">
+                <button class="modal-feedback-btn-close" data-modal-feedback-close type="button">
+                    <svg class="close-modal-icon" width="32" height="32">
+                            <use href="/js_116_Gaevuha/assets/sprite-mcy0BEy_.svg#icon-x"></use>
+                    </svg>
+                </button>
+                <p class="modal-feedback-title">Submit feedback</p>
+                <form class="modal-feedback-form">
+                    <div class="modal-feedback-field">
+                        <label for="user-name" class="modal-feedback-label">Name</label>
+                            <input type="text" class="modal-feedback-input" name="user-name" placeholder="Emily" required id="user-name">
+                    </div>
+                    <div class="modal-feedback-field modal-feedback-field-textarea">
+                        <label for="user-comment" class="modal-feedback-label">Message</label>
+                        <textarea class="modal-feedback-textarea" name="user-comment" id="user-comment"
+                            placeholder="Type your message..."></textarea>
+                    </div>
+                    <div class="modal-feedback-field">
+                    <label class="modal-feedback-label"></label>
+                    <div class="rating-group">
+                        <input type="radio" name="rating" id="star-5" value="5">
+                        <label for="star-5" title="5 stars"></label>
+                        <input type="radio" name="rating" id="star-4" value="4">
+                        <label for="star-4" title="4 stars"></label>
+                        <input type="radio" name="rating" id="star-3" value="3">
+                        <label for="star-3" title="3 stars"></label>
+                        <input type="radio" name="rating" id="star-2" value="2">
+                        <label for="star-2" title="2 stars"></label>
+                        <input type="radio" name="rating" id="star-1" value="1">
+                        <label for="star-1" title="1 star"></label>
+                    </div>
+                    </div>
+                    <button class="modal-btn-feedback" type="submit">Submit</button>
+                </form>
+            </div>
+        </div> 
+
+</body>
+
+</html>
